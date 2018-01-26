@@ -1,0 +1,38 @@
+<h1>Welcome to <%= @reservation.restaurant_name %></h1>
+<p>
+  You have successfully reserved a table.<br>
+</p>
+<table>
+  <tr>
+    <td>Restaurant</td>
+    <td>:</td>
+    <td><%= @reservation.restaurant_name %></td>
+  </tr>
+  <tr>
+    <td>Reserved table</td>
+    <td>:</td>
+    <td><%= @reservation.table_name %></td>
+  </tr>
+  <tr>
+    <td>Old Reservation time</td>
+    <td>:</td>
+    <td><%= @old_reservation_time %></td>
+  </tr>
+  <tr>
+    <td>New Reservation time</td>
+    <td>:</td>
+    <td><%= @reservation.reservation_time %></td>
+  </tr>
+  <tr>
+    <td>Old No of guests</td>
+    <td>:</td>
+    <td><%= @old_guest_count %></td>
+  </tr>
+  <tr>
+    <td>New No of guests</td>
+    <td>:</td>
+    <td><%= @reservation.guest_count %></td>
+  </tr>
+
+</table>
+<p>Thanks for choosing us and have a great day!</p>

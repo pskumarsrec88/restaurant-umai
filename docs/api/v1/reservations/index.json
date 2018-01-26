@@ -1,0 +1,27 @@
+{
+  "published": true,
+  "sort_order": 1,
+  "name": "Restaurant reservations List",
+  "end_point": "api/v1/restaurants/:restaurant_id/reservations",
+  "http_method": "GET",
+  "params": [],
+  "examples": [{
+    "response": {
+      "success": true,
+      "restaurant": [
+        {
+          "reservation_time": "2018-01-28T10:59:00.000Z",
+          "guest_count": 4,
+          "guest_name": "saran",
+          "table_namet": "Table 1"
+        },
+        {
+          "reservation_time": "2018-01-29T10:59:00.000Z",
+          "guest_count": 4,
+          "guest_name": "saran",
+          "table_namet": "Table 2"
+        }
+      ]
+    }
+  }]
+}

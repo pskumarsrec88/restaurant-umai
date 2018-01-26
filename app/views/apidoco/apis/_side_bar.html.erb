@@ -1,0 +1,28 @@
+<!-- recursive template -->
+<script type="text/ng-template" id="documentationTree">
+  <a href="#{{documentation.id}}">{{documentation.name}}</a>
+  <ul ng-if="documentation.children">
+    <li ng-repeat="documentation in documentation.children" ng-include="'documentationTree'">
+    </li>
+  </ul>
+</script>
+
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <a href="#">
+        Restaurant
+      </a>
+    </li>
+    <li class="padding-10">
+      <select class="form-control" ng-if="documentationVersions.length > 1" ng-model="currentVersion" ng-change="navigateToCurrentVersion(currentVersion);">
+        <option ng-repeat="version in documentationVersions" ng-value="version.name">{{version.name}}</option>
+      </select>
+    </li>
+    <li class="mt-10 padding-10">
+      <input type="text" placeholder="Search.." class="form-control input-sm" ng-model="searchKeyword" />
+    </li>
+    <li ng-repeat="documentation in data.apis | filter: searchKeyword" ng-include="'documentationTree'">
+    </li>
+  </ul>
+</div>

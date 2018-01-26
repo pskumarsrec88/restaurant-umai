@@ -1,0 +1,80 @@
+{
+  "published": true,
+  "sort_order": 2,
+  "name": "Create reservations",
+  "end_point": "api/v1/restaurants/:restaurant_id/reservations",
+  "http_method": "POST",
+  "params": [{
+    "key": "reservation['table_id']",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "reservation['reservation_time']",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "reservation['guest_count']",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "reservation['guest_attributes']",
+    "required": true,
+    "type": "Guest Object"
+  }, {
+    "key": "reservation['guest_attributes'][:name]",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "reservation['guest_attributes'][:email]",
+    "required": true,
+    "type": "String"
+  }],
+  "examples": [{
+    "request": {
+      "reservation": {
+        "table_id": 2,
+        "reservation_time": "2018-01-28 10:59:00",
+        "guest_attributes": {
+          "name": "saran",
+          "email": "saran@agiratech.com"
+        },
+        "guest_count": 4
+      }
+    },
+    "response": {
+      "success": true,
+      "message": "Reservation successfully created",
+      "reservation": {
+        "reservation_time": "2018-01-28T10:59:00.000Z",
+        "guest_count": 4,
+        "guest_name": "saran",
+        "table_name": "Table 1",
+        "created_at": "2018-01-28T10:59:00.000Z"
+      }
+    }
+  },
+  {
+    "request": {
+      "reservation": {
+        "guest": ""
+      }
+    },
+    "response": {
+      "success": false,
+      "message": {
+        "guest": [
+          "must exist"
+        ],
+        "table": [
+          "must exist"
+        ],
+        "reservation_time": [
+          "can't be blank"
+        ],
+        "guest_count": [
+          "can't be blank"
+        ]
+      }
+    }
+  }]
+}

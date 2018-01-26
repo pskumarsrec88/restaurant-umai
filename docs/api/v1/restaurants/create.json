@@ -1,0 +1,114 @@
+{
+  "published": true,
+  "sort_order": 5,
+  "name": "Create Restaurant",
+  "end_point": "api/v1/restaurants",
+  "http_method": "POST",
+  "params": [{
+    "key": "restaurant['name']",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "restaurant['email']",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "restaurant['phone_number']",
+    "required": true,
+    "type": "String"
+  }, {
+    "key": "restaurant['shifts_attributes']",
+    "required": true,
+    "type": "Array of shifts"
+  }, {
+    "key": "restaurant['tables_attributes']",
+    "required": true,
+    "type": "Array of tables"
+  }],
+  "examples": [{
+    "request": {
+      "restaurant": {
+        "name": "saravanan",
+        "email": "saran@agiratech.com",
+        "phone_number" : "9787577654",
+        "shifts_attributes": [
+          {
+            "start_time": "10 am",
+            "end_time": "1 pm"
+          }
+        ],
+        "tables_attributes": [
+          {
+            "name": "Table 1",
+            "minimum_capacity": "10",
+            "maximum_capacity": "1"
+          }
+        ]
+      }
+    },
+    "response": {
+      "success": true,
+      "message": "Restaurant successfully created",
+      "restaurant": {
+        "id": 1,
+        "name": "saravana",
+        "email": "saran@agiratech.com",
+        "phone_number": "9787577654",
+        "created_at": "2018-01-25T10:19:05.999Z",
+        "updated_at": "2018-01-25T10:19:05.999Z",
+        "shifts": [
+          {
+            "id": 6,
+            "start_time": "2000-01-01T10:00:00.000Z",
+            "end_time": "2000-01-01T13:00:00.000Z",
+            "restaurant_id": 8,
+            "created_at": "2018-01-25T13:32:16.899Z",
+            "updated_at": "2018-01-25T13:32:16.899Z"
+          }
+        ],
+        "tables": [
+          {
+            "id": 1,
+            "name": "Table 1",
+            "minimum_capacity": 2,
+            "maximum_capacity": 5,
+            "restaurant_id": 8,
+            "created_at": "2018-01-25T13:32:16.905Z",
+            "updated_at": "2018-01-25T13:32:16.905Z"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "request": {
+      "restaurant": {
+        "name": "saravana",
+        "email": "saran@agiratech",
+        "phone_number" : "7"
+      }
+    },
+    "response": {
+      "success": false,
+      "message": {
+        "name": [
+          "can't be blank"
+        ],
+        "email": [
+          "can't be blank",
+          "is invalid"
+        ],
+        "phone_number": [
+          "can't be blank",
+          "is invalid"
+        ],
+        "shifts.end_time": [
+          "can’t be less then the start time"
+        ],
+        "tables.maximum_capacity": [
+          "can’t be less then the minimum capacity"
+        ]
+      }
+    }
+  }]
+}

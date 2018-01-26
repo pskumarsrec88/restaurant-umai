@@ -1,0 +1,27 @@
+#   Ensure the pg gem is defined in your Gemfile
+#   gem 'pg'
+
+# Default
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV.fetch('DATABASE_USER') %>
+  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  port: <%= ENV.fetch('DATABASE_PORT') %>
+  pool: <%= ENV.fetch('DATABASE_POOL').to_i %>
+
+# Development
+development:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') %>_development
+
+# Test
+test:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') %>_test
+
+# Production
+production:
+  <<: *default
+  database: <%= ENV.fetch('DATABASE_NAME') %>

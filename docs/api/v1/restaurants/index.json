@@ -1,0 +1,31 @@
+{
+  "published": true,
+  "sort_order": 4,
+  "name": "Restaurants List",
+  "end_point": "api/v1/restaurants",
+  "http_method": "GET",
+  "params": [],
+  "examples": [{
+    "response": {
+      "success": true,
+      "restaurant": [
+        {
+          "id": 1,
+          "name": "saravana",
+          "email": "saran@agiratech.com",
+          "phone_number": "9787577654",
+          "created_at": "2018-01-25T10:19:05.999Z",
+          "updated_at": "2018-01-25T10:19:05.999Z"
+        },
+        {
+          "id": 2,
+          "name": "saravanan",
+          "email": "saran+1@agiratech.com",
+          "phone_number": "123456789",
+          "created_at": "2018-01-25T10:29:33.875Z",
+          "updated_at": "2018-01-25T10:29:33.875Z"
+        }
+      ]
+    }
+  }]
+}

@@ -1,0 +1,34 @@
+Metrics/LineLength:
+  Max: 300
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+    - 'db/**/*'
+  IgnoredPatterns: ['\A#']
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'config/**/*'
+    - 'db/**/*'
+Style/IndentationConsistency:
+  EnforcedStyle: rails
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Include:
+    - 'app/controllers/**/*'
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'test/**/*'
+Documentation:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': ()
+    '%w': ()
+  Exclude:
+    - 'config/**/*'
+Style/FrozenStringLiteralComment:
+  Enabled: false
