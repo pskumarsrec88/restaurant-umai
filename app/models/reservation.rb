@@ -29,7 +29,7 @@ class Reservation < ApplicationRecord
       guest_name: guest_name,
       table_name: table_name,
       created_at: created_at,
-      table_namet: table_name,
+      table_namet: table_name
     }
   end
 

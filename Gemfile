@@ -40,9 +40,6 @@ gem 'jbuilder', '2.7.0'
 gem 'apidoco', '1.5.0'
 
 group :development do
-  # Call 'binding.pry' in the code to stop execution and get a debugger console
-  gem 'pry', '0.11.3'
-
   # Spring speed up development by keeping application running in the background
   gem 'spring', '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
@@ -50,4 +47,12 @@ group :development do
   # Ruby static code analyzer
   gem 'rails_best_practices', '1.18.1'
   gem 'rubocop', '0.49.1', require: false
+end
+
+group :development, :test do
+  # Call 'binding.pry' in the code to stop execution and get a debugger console
+  gem 'pry', '0.11.3'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
