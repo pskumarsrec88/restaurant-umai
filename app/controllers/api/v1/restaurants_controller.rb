@@ -2,7 +2,7 @@ class Api::V1::RestaurantsController < ApplicationController
   def create
     restaurant = Restaurant.new(restaurant_params)
     if restaurant.save
-      render json: { success: true, message: 'Restaurant successfully created', restaurant: restaurant }
+      render json: { success: true, message: 'Restaurant successfully created', restaurant: restaurant.to_json }
     else
       render json: { success: false, message: restaurant.errors }
     end
